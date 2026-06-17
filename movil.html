@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prototitpo Movil - Paso Seguro SNA</title>
+  <Link = rel="icon" type="image/png/jpg" href="assets/Logo-aduanas-mod.png"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <svg class="svg-sprite" aria-hidden="true">
+    <symbol id="icon-key" viewBox="0 0 24 24">
+      <circle cx="8" cy="12" r="3.5"></circle>
+      <path d="M11.5 12H22M17 12v3M20 12v2"></path>
+    </symbol>
+    <symbol id="icon-car" viewBox="0 0 24 24">
+      <path d="M5 12l2-5h10l2 5M5 12h14v6H5zM8 18v2M16 18v2"></path>
+      <path d="M8 15h.01M16 15h.01"></path>
+    </symbol>
+    <symbol id="icon-doc" viewBox="0 0 24 24">
+      <path d="M7 3h7l5 5v13H7zM14 3v6h5M10 13h7M10 17h5"></path>
+    </symbol>
+    <symbol id="icon-help" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"></circle>
+      <path d="M9.5 9a3 3 0 1 1 5 2.2c-1.4 1-2 1.5-2 3M12.5 18h.01"></path>
+    </symbol>
+    <symbol id="icon-user" viewBox="0 0 24 24">
+      <circle cx="12" cy="8" r="4"></circle>
+      <path d="M4 21c1.8-4 5-6 8-6s6.2 2 8 6"></path>
+    </symbol>
+    <symbol id="icon-home" viewBox="0 0 24 24">
+      <path d="M4 11l8-7 8 7v9H6v-9"></path>
+    </symbol>
+    <symbol id="icon-upload" viewBox="0 0 24 24">
+      <path d="M12 16V4M8 8l4-4 4 4M5 20h14"></path>
+    </symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24">
+      <circle cx="10.5" cy="10.5" r="6.5"></circle>
+      <path d="M16 16l5 5"></path>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24">
+      <path d="M5 13l4 4L19 7"></path>
+    </symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24">
+      <path d="M5 12h14M13 6l6 6-6 6"></path>
+    </symbol>
+    <symbol id="icon-gmail" viewBox="0 0 24 24">
+      <path d="M4 7v10" stroke="#4285F4" stroke-width="3" stroke-linecap="round"></path>
+      <path d="M20 7v10" stroke="#34A853" stroke-width="3" stroke-linecap="round"></path>
+      <path d="M4 7l8 6 8-6" stroke="#EA4335" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+      <path d="M4 17h3" stroke="#FBBC04" stroke-width="3" stroke-linecap="round"></path>
+      <path d="M17 17h3" stroke="#34A853" stroke-width="3" stroke-linecap="round"></path>
+    </symbol>
+  </svg>
+
+  <header class="topbar">
+    <div>
+      <strong>Prototipo Móvil Paso Seguro SNA</strong>
+      <span>Servicio Nacional de Aduanas</span>
+    </div>
+  </header>
+
+  <main class="canvas" aria-live="polite">
+    <section class="phone app-screen" id="login" aria-label="Pantalla de inicio de sesión">
+      <div class="status"></div>
+      <div class="screen">
+        <div class="brand">
+          <div>
+          <img class="brand-logo" src="assets/Logo-aduanas-mod.png" alt="Logo Aduana Chile"/>
+          </div>
+          <h1>Aduanas Chile</h1>
+          <p>Trámites fronterizos terrestres</p>
+        </div>
+
+        <form class="card">
+          <h2>Iniciar sesión</h2>
+          <label class="field-label" for="login-email">Correo electrónico</label>
+          <input id="login-email" type="email" placeholder="********@email.com" autocomplete="email" />
+
+          <label class="field-label" for="login-password">Contraseña</label>
+          <input id="login-password" type="password" placeholder="********" autocomplete="current-password" />
+
+          <a class="primary" href="#home">
+            Ingresar
+            <span class="button-icon"><svg><use href="#icon-arrow"></use></svg></span>
+          </a>
+
+          <button class="outline" type="button">
+            <span class="button-icon"><svg><use href="#icon-key"></use></svg></span>
+            Ingresar con Clave Única
+          </button>
+
+          <button class="outline" type="button">
+            <span class="button-icon gmail-symbol" aria-hidden="true"><svg><use href="#icon-gmail"></use></svg></span>
+            Ingresar con Gmail
+          </button>
+
+          <p class="center small">¿No tienes cuenta? <a href="#register">Regístrate aquí</a></p>
+        </form>
+
+        <div class="help-strip"> Ayuda - Seguridad - Términos </div>
+      </div>
+    </section>
+
+    <section class="phone app-screen" id="register" aria-label="Pantalla de registro">
+      <div class="status"></div>
+      <div class="screen scroll">
+        <div class="nav"><a href="#login" aria-label="Volver"></a><strong>Crear cuenta</strong><span></span></div>
+
+        <form class="card">
+          <h2>Registro de usuario</h2>
+          <button class="outline" type="button">
+            <span class="button-icon gmail-symbol" aria-hidden="true"><svg><use href="#icon-gmail"></use></svg></span>
+            Registrarme con Gmail
+          </button>
+
+          <div class="divider"><span>o completa tus datos</span></div>
+
+          <label class="field-label" for="register-name">Nombre completo</label>
+          <input id="register-name" type="text" placeholder="Ej: Braulio Gómez" autocomplete="name" />
+
+          <label class="field-label" for="register-id">RUT / Documento</label>
+          <input id="register-id" type="text" placeholder="12.345.678-9" />
+
+          <label class="field-label" for="register-email">Correo</label>
+          <input id="register-email" type="email" placeholder="correo@email.com" autocomplete="email" />
+
+          <label class="field-label" for="register-phone">Teléfono</label>
+          <input id="register-phone" type="tel" placeholder="+56 9 1234 5678" autocomplete="tel" />
+
+          <label class="field-label" for="register-password">Contraseña</label>
+          <input id="register-password" type="password" placeholder="Mínimo 8 caracteres" autocomplete="new-password" />
+
+          <a class="primary" href="#home">Crear cuenta</a>
+        </form>
+      </div>
+    </section>
+
+    <section class="phone app-screen" id="home" aria-label="Pantalla de inicio">
+      <div class="status"></div>
+      <div class="screen">
+        <div class="home-head">
+          <div>
+            <p>Bienvenido/a</p>
+            <h2>Paso Seguro SNA</h2>
+          </div>
+          <img class="avatar logo-avatar" src="assets/Logo-aduanas-mod.png" alt="Logo Aduana Chile" href="#profile"/>
+        </div>
+
+        <div class="notice">
+          <strong>Completa tus trámites antes de llegar al paso fronterizo.</strong>
+          <span>Reduce el tiempo de atención en ventanilla.</span>
+        </div>
+
+        <div class="grid-menu">
+          <a href="#travel" class="menu-card">
+            <span class="menu-icon"><svg><use href="#icon-car"></use></svg></span>
+            <span><strong>Registrar viaje y documentación</strong><small>Pasajeros, menores y vehículos</small></span>
+          </a>
+          <a href="#declarations" class="menu-card">
+            <span class="menu-icon"><svg><use href="#icon-doc"></use></svg></span>
+            <span><strong>Registrar declaraciones</strong><small>Declaración SAG / Aduanas</small></span>
+          </a>
+          <a href="#faq" class="menu-card">
+            <span class="menu-icon"><svg><use href="#icon-help"></use></svg></span>
+            <span><strong>Preguntas frecuentes</strong><small>Documentos y requisitos</small></span>
+          </a>
+          <a href="#profile" class="menu-card">
+            <span class="menu-icon"><svg><use href="#icon-user"></use></svg></span>
+            <span><strong>Mi cuenta</strong><small>Datos personales</small></span>
+          </a>
+        </div>
+
+        <nav class="bottom" aria-label="Navegación inferior">
+          <a href="#home"><span class="nav-icon"><svg><use href="#icon-home"></use></svg></span>Inicio</a>
+          <a href="#travel"><span class="nav-icon"><svg><use href="#icon-car"></use></svg></span>Viaje</a>
+          <a href="#declarations"><span class="nav-icon"><svg><use href="#icon-doc"></use></svg></span>Declaración</a>
+          <a href="#profile"><span class="nav-icon"><svg><use href="#icon-user"></use></svg></span>Cuenta</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="phone app-screen" id="profile" aria-label="Pantalla de cuenta">
+      <div class="status"></div>
+      <div class="screen scroll">
+        <div class="nav"><a href="#home" aria-label="Volver">‹</a><strong>Mi cuenta</strong><span></span></div>
+
+        <div class="profile-top">
+          <div class="avatar big">BG</div>
+          <h2>Datos del usuario</h2>
+          <p>Información para autocompletar trámites.</p>
+        </div>
+
+        <form class="card">
+          <label class="field-label" for="profile-name">Nombre completo</label>
+          <input id="profile-name" type="text" value="Braulio Gómez" />
+
+          <label class="field-label" for="profile-id">RUT / Documento</label>
+          <input id="profile-id" type="text" value="12.345.678-9" />
+
+          <label class="field-label" for="profile-nationality">Nacionalidad</label>
+          <select id="profile-nationality">
+            <option>Chilena</option>
+            <option>Argentina</option>
+            <option>Otra</option>
+          </select>
+
+          <label class="field-label" for="profile-email">Correo electrónico</label>
+          <input id="profile-email" type="email" value="usuario@email.com" />
+
+          <label class="field-label" for="profile-phone">Teléfono</label>
+          <input id="profile-phone" type="tel" value="+56 9 1234 5678" />
+
+          <a class="primary" href="#home">Guardar cambios</a>
+        </form>
+      </div>
+    </section>
+
+    <section class="phone app-screen" id="travel" aria-label="Pantalla de registro de viaje">
+      <div class="status"></div>
+      <div class="screen scroll">
+        <div class="nav"><a href="#home" aria-label="Volver">‹</a><strong>Registrar viaje</strong><span></span></div>
+        <div class="steps" aria-label="Paso 1 de 3"><b>1</b><span></span><b>2</b><span></span><b>3</b></div>
+
+        <form>
+          <div class="card">
+            <h2>Datos del viaje</h2>
+
+            <label class="field-label" for="travel-type">Tipo de trámite</label>
+            <select id="travel-type">
+              <option>Salida temporal desde Chile</option>
+              <option>Ingreso temporal a Chile</option>
+            </select>
+
+            <label class="field-label" for="border-crossing">Paso fronterizo</label>
+            <select id="border-crossing">
+              <option>Los Libertadores</option>
+              <option>Otro paso terrestre</option>
+            </select>
+
+            <label class="field-label" for="crossing-date">Fecha estimada de cruce</label>
+            <input id="crossing-date" type="date" />
+
+            <label class="field-label" for="destination">Destino</label>
+            <input id="destination" type="text" placeholder="Ej: Mendoza, Argentina" />
+          </div>
+
+          <div class="card">
+            <h2>Documentación</h2>
+
+            <label class="check" for="doc-id">
+              <input id="doc-id" type="checkbox" />
+              <span>Cédula o pasaporte vigente</span>
+            </label>
+
+            <label class="check" for="doc-minor">
+              <input id="doc-minor" type="checkbox" />
+              <span>Autorización notarial para menor de edad</span>
+            </label>
+
+            <label class="check" for="doc-vehicle-temp">
+              <input id="doc-vehicle-temp" type="checkbox" />
+              <span>Documento de salida/admisión temporal de vehículo</span>
+            </label>
+
+            <label class="check" for="doc-vehicle">
+              <input id="doc-vehicle" type="checkbox" />
+              <span>Documentos del vehículo</span>
+            </label>
+
+            <input class="file-input" id="doc-upload" type="file" accept=".pdf,image/*" />
+            <label class="upload" for="doc-upload">
+              <span class="button-icon"><svg><use href="#icon-upload"></use></svg></span>
+              Subir documento PDF / imagen
+            </label>
+
+            <a class="primary" href="#summary">Guardar registro</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="phone app-screen" id="declarations" aria-label="Pantalla de declaraciones">
+      <div class="status"></div>
+      <div class="screen scroll">
+        <div class="nav"><a href="#home" aria-label="Volver">‹</a><strong>Declaraciones</strong><span></span></div>
+
+        <form class="card">
+          <h2>Declaración de pasajero</h2>
+
+          <label class="field-label">¿Porta productos animales o vegetales?</label>
+          <div class="segmented" role="radiogroup" aria-label="Productos animales o vegetales">
+            <label>
+              <input type="radio" name="animal-vegetal" value="si" checked />
+              <span>Sí</span>
+            </label>
+            <label>
+              <input type="radio" name="animal-vegetal" value="no" />
+              <span>No</span>
+            </label>
+          </div>
+
+          <label class="field-label" for="product-type">Tipo de producto</label>
+          <select id="product-type">
+            <option>No aplica</option>
+            <option>Alimentos</option>
+            <option>Animal / subproducto</option>
+          </select>
+
+          <label class="field-label" for="description">Descripción</label>
+          <textarea id="description" placeholder="Describe brevemente lo que portas..."></textarea>
+
+          <label class="check" for="truth-declaration">
+            <input id="truth-declaration" type="checkbox" />
+            <span>Declaro que la información entregada es verdadera</span>
+          </label>
+
+          <a class="primary" href="#summary">Enviar declaración</a>
+        </form>
+
+        <div class="alert">La declaración será vinculada al perfil del pasajero para revisión SAG/Aduanas.</div>
+      </div>
+    </section>
+
+    <section class="phone app-screen" id="summary" aria-label="Pantalla de comprobante">
+      <div class="status"></div>
+      <div class="screen">
+        <div class="nav"><a href="#declarations" aria-label="Volver">‹</a><strong>Comprobante</strong><span></span></div>
+
+        <div class="success">
+          <div class="checkmark"><svg><use href="#icon-check"></use></svg></div>
+          <h2>Registro recibido</h2>
+          <p>Tu trámite quedó registrado para revisión en frontera.</p>
+          <div class="qr" aria-label="QR simulado"></div>
+          <p class="small">Código: SNA-2026-000184</p>
+          <a class="primary" href="#home">Volver al inicio</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="phone app-screen" id="faq" aria-label="Pantalla de preguntas frecuentes">
+      <div class="status"></div>
+      <div class="screen scroll">
+        <div class="nav"><a href="#home" aria-label="Volver">‹</a><strong>Preguntas frecuentes</strong><span></span></div>
+
+        <div class="search">
+          <input id="buscar-ayuda" type="search" placeholder="Buscar ayuda" />
+        </div>
+ 
+        <details open>
+          <summary>¿Qué documentos necesita un menor de edad?</summary>
+          <p>Cédula o pasaporte vigente y autorización notarial cuando corresponda.</p>
+        </details>
+        <details>
+          <summary>¿Qué debo declarar si traigo alimentos?</summary>
+          <p>Debes declarar productos o subproductos animales o vegetales antes del ingreso.</p>
+        </details>
+        <details>
+          <summary>¿Cuánto dura la salida temporal del vehículo?</summary>
+          <p>Para el acuerdo chileno-argentino se considera un plazo referencial de 180 días.</p>
+        </details>
+        <details>
+          <summary>¿Puedo guardar el trámite y terminarlo después?</summary>
+          <p>Sí, el prototipo considera guardado parcial asociado a tu cuenta.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

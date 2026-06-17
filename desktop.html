@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prototipo Desktop SNA - Gobierno de Chile</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="desktop-body" data-default-screen="desktop-dashboard">
+  <header class="desktop-topbar">
+    <div class="desktop-brand">
+      <img class="desktop-logo" src="assets/Logo-aduanas-mod.png" alt="Logo de Aduanas Paso Seguro SNA"/>
+      <div>
+        <strong>Paso Seguro SNA</strong>
+        <span>Plataforma integrada de control fronterizo</span>
+      </div>
+    </div>
+
+    <div class="desktop-user">
+      <span>Operador: Aduanas Los Libertadores</span>
+      <strong>Turno Mañana</strong>
+    </div>
+  </header>
+
+  <div class="desktop-shell">
+    <aside class="desktop-sidebar" aria-label="Navegación principal Desktop">
+      <div class="role-card">
+        <small>Rol activo</small>
+        <strong>Funcionario Aduanas</strong>
+        <span>Acceso SAG / PDI simulado</span>
+      </div>
+
+      <nav class="desktop-nav">
+        <a href="#desktop-dashboard">Panel general</a>
+        <a href="#desktop-cases">Bandeja de trámites</a>
+        <a href="#desktop-review">Revisión documental</a>
+        <a href="#desktop-passenger">Atención pasajero</a>
+        <a href="#desktop-declarations">Declaraciones SAG/Aduanas</a>
+        <a href="#desktop-reports">Reportes y métricas</a>
+        <a href="#desktop-admin">Administración</a>
+      </nav>
+    </aside>
+
+    <main class="desktop-main">
+      <section class="app-screen desktop-screen" id="desktop-dashboard" aria-label="Panel general">
+        <div class="page-head">
+          <div>
+            <p>Vista operativa</p>
+            <h1>Panel general del paso fronterizo</h1>
+          </div>
+          <a class="desktop-primary" href="#desktop-cases">Revisar trámites pendientes</a>
+        </div>
+
+        <div class="metric-grid">
+          <article class="metric-card">
+            <span>Trámites del día</span>
+            <strong>184</strong>
+            <small>+26 registrados por app móvil</small>
+          </article>
+          <article class="metric-card warning">
+            <span>Pendientes de revisión</span>
+            <strong>37</strong>
+            <small>12 requieren validación documental</small>
+          </article>
+          <article class="metric-card success-state">
+            <span>Aprobados</span>
+            <strong>121</strong>
+            <small>Incluye revisión Aduanas/SAG</small>
+          </article>
+          <article class="metric-card danger-state">
+            <span>Observados</span>
+            <strong>9</strong>
+            <small>Declaraciones incompletas o inconsistentes</small>
+          </article>
+        </div>
+
+        <div class="desktop-grid two-columns">
+          <section class="desktop-card">
+            <div class="section-title">
+              <h2>Flujo operativo</h2>
+              <span class="tag blue">En línea</span>
+            </div>
+            <div class="process-list">
+              <div><b>1</b><span>Pre-registro pasajero</span><strong>Completado</strong></div>
+              <div><b>2</b><span>Documentación de viaje</span><strong>Pendiente</strong></div>
+              <div><b>3</b><span>Declaración SAG/Aduanas</span><strong>En revisión</strong></div>
+              <div><b>4</b><span>Validación en frontera</span><strong>Por ejecutar</strong></div>
+            </div>
+          </section>
+
+          <section class="desktop-card">
+            <div class="section-title">
+              <h2>Alertas priorizadas</h2>
+              <span class="tag red">3 críticas</span>
+            </div>
+            <ul class="alert-list">
+              <li><strong>Menor de edad sin autorización adjunta</strong><span>Trámite SNA-2026-000192</span></li>
+              <li><strong>Producto vegetal declarado requiere SAG</strong><span>Trámite SNA-2026-000184</span></li>
+              <li><strong>Vehículo con salida temporal próxima a vencer</strong><span>Plazo referencial 180 días</span></li>
+            </ul>
+          </section>
+        </div>
+
+        <section class="desktop-card">
+          <div class="section-title">
+            <h2>Trámites recientes</h2>
+            <a href="#desktop-cases">Ver bandeja completa</a>
+          </div>
+          <div class="desktop-table">
+            <div class="table-row table-head"><span>Código</span><span>Pasajero</span><span>Tipo</span><span>Paso</span><span>Estado</span></div>
+            <div class="table-row"><span>SNA-2026-000184</span><span>Braulio Gómez</span><span>Salida temporal</span><span>Los Libertadores</span><span class="status-pill review">En revisión</span></div>
+            <div class="table-row"><span>SNA-2026-000185</span><span>María Torres</span><span>Ingreso a Chile</span><span>Los Libertadores</span><span class="status-pill approved">Aprobado</span></div>
+            <div class="table-row"><span>SNA-2026-000186</span><span>Carlos Rivas</span><span>Vehículo temporal</span><span>Otro paso</span><span class="status-pill observed">Observado</span></div>
+          </div>
+        </section>
+      </section>
+
+      <section class="app-screen desktop-screen" id="desktop-cases" aria-label="Bandeja de trámites">
+        <div class="page-head">
+          <div>
+            <p>Gestión diaria</p>
+            <h1>Bandeja de trámites</h1>
+          </div>
+          <button class="desktop-primary" type="button">Exportar listado</button>
+        </div>
+
+        <section class="desktop-card filters-card">
+          <div class="desktop-form-grid four">
+            <label><span>Buscar por código/RUT</span><input type="search" placeholder="Ej: SNA-2026-000184" /></label>
+            <label><span>Estado</span><select><option>Todos</option><option>Pendiente</option><option>En revisión</option><option>Aprobado</option><option>Observado</option></select></label>
+            <label><span>Institución</span><select><option>Todas</option><option>Aduanas</option><option>SAG</option><option>PDI</option></select></label>
+            <label><span>Fecha de cruce</span><input type="date" /></label>
+          </div>
+        </section>
+
+        <section class="desktop-card">
+          <div class="section-title">
+            <h2>Resultados</h2>
+            <span class="tag blue">37 pendientes</span>
+          </div>
+          <div class="case-list">
+            <article class="case-card selected">
+              <div><strong>SNA-2026-000184</strong><span>Braulio Gómez - Salida temporal desde Chile</span></div>
+              <span class="status-pill review">En revisión</span>
+              <a href="#desktop-review">Abrir</a>
+            </article>
+            <article class="case-card">
+              <div><strong>SNA-2026-000192</strong><span>Grupo familiar - Menor de edad declarado</span></div>
+              <span class="status-pill observed">Observado</span>
+              <a href="#desktop-review">Abrir</a>
+            </article>
+            <article class="case-card">
+              <div><strong>SNA-2026-000201</strong><span>Vehículo temporal - Ingreso desde Argentina</span></div>
+              <span class="status-pill pending">Pendiente</span>
+              <a href="#desktop-review">Abrir</a>
+            </article>
+            <article class="case-card">
+              <div><strong>SNA-2026-000209</strong><span>Declaración alimentos - Requiere SAG</span></div>
+              <span class="status-pill review">En revisión</span>
+              <a href="#desktop-declarations">Abrir</a>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="app-screen desktop-screen" id="desktop-review" aria-label="Revisión documental">
+        <div class="page-head">
+          <div>
+            <p>Trámite SNA-2026-000184</p>
+            <h1>Revisión documental</h1>
+          </div>
+          <div class="button-row">
+            <button class="desktop-outline" type="button">Solicitar corrección</button>
+            <button class="desktop-primary" type="button">Aprobar documentación</button>
+          </div>
+        </div>
+
+        <div class="desktop-grid review-layout">
+          <section class="desktop-card">
+            <div class="section-title"><h2>Datos del pasajero</h2><span class="tag blue">Validado</span></div>
+            <dl class="detail-list">
+              <div><dt>Nombre</dt><dd>Braulio Gómez</dd></div>
+              <div><dt>Documento</dt><dd>12.345.678-9</dd></div>
+              <div><dt>Nacionalidad</dt><dd>Chilena</dd></div>
+              <div><dt>Correo</dt><dd>usuario@email.com</dd></div>
+              <div><dt>Teléfono</dt><dd>+56 9 1234 5678</dd></div>
+            </dl>
+          </section>
+
+          <section class="desktop-card">
+            <div class="section-title"><h2>Datos del viaje</h2><span class="tag blue">Los Libertadores</span></div>
+            <dl class="detail-list">
+              <div><dt>Tipo de trámite</dt><dd>Salida temporal desde Chile</dd></div>
+              <div><dt>Fecha estimada</dt><dd>16/06/2026</dd></div>
+              <div><dt>Destino</dt><dd>Mendoza, Argentina</dd></div>
+              <div><dt>Vehículo</dt><dd>Declarado</dd></div>
+            </dl>
+          </section>
+        </div>
+
+        <section class="desktop-card">
+          <div class="section-title"><h2>Checklist documental</h2><span class="tag red">1 observación</span></div>
+          <div class="document-grid">
+            <article><span class="doc-ok">Aprobado</span><strong>Cédula o pasaporte vigente</strong><small>Archivo PDF cargado por pasajero</small></article>
+            <article><span class="doc-warning">Pendiente</span><strong>Autorización notarial menor de edad</strong><small>No aplica si viaja sin menor</small></article>
+            <article><span class="doc-ok">Aprobado</span><strong>Documento salida temporal vehículo</strong><small>Vigencia referencial: 180 días</small></article>
+            <article><span class="doc-review">Revisar</span><strong>Documentos del vehículo</strong><small>Coincidencia patente / titular</small></article>
+          </div>
+        </section>
+
+        <section class="desktop-card">
+          <div class="section-title"><h2>Historial de acciones</h2><span>Auditoría simulada</span></div>
+          <ol class="timeline">
+            <li><strong>09:10</strong> Pasajero envía registro desde app móvil.</li>
+            <li><strong>09:14</strong> Sistema vincula declaración SAG/Aduanas.</li>
+            <li><strong>09:22</strong> Funcionario revisa documentación del vehículo.</li>
+            <li><strong>09:28</strong> Pendiente validación final de Aduanas.</li>
+          </ol>
+        </section>
+      </section>
+
+      <section class="app-screen desktop-screen" id="desktop-passenger" aria-label="Atención pasajero">
+        <div class="page-head">
+          <div>
+            <p>Módulo web para pasajeros</p>
+            <h1>Atención y registro asistido</h1>
+          </div>
+          <button class="desktop-primary" type="button">Crear trámite asistido</button>
+        </div>
+
+        <div class="desktop-grid two-columns">
+          <section class="desktop-card">
+            <div class="section-title"><h2>Datos del solicitante</h2><span class="tag blue">Formulario web</span></div>
+            <div class="desktop-form-grid two">
+              <label><span>Nombre completo</span><input type="text" value="Braulio Gómez" /></label>
+              <label><span>RUT / Documento</span><input type="text" value="12.345.678-9" /></label>
+              <label><span>Nacionalidad</span><select><option>Chilena</option><option>Argentina</option><option>Otra</option></select></label>
+              <label><span>Correo</span><input type="email" value="usuario@email.com" /></label>
+            </div>
+          </section>
+
+          <section class="desktop-card">
+            <div class="section-title"><h2>Opciones disponibles</h2><span>Autoservicio</span></div>
+            <div class="option-list">
+              <button type="button">Registrar viaje terrestre</button>
+              <button type="button">Subir documentación</button>
+              <button type="button">Declarar productos SAG/Aduanas</button>
+              <button type="button">Consultar estado con código QR</button>
+            </div>
+          </section>
+        </div>
+
+        <section class="desktop-card">
+          <div class="section-title"><h2>Resumen para el pasajero</h2><span class="tag blue">Vista Desktop</span></div>
+          <div class="passenger-summary">
+            <div><strong>Próximo paso</strong><span>Completar declaración de productos animales o vegetales antes de llegar a frontera.</span></div>
+            <div><strong>Documentos faltantes</strong><span>No se detectan documentos obligatorios pendientes para el trámite actual.</span></div>
+            <div><strong>Comprobante</strong><span>Disponible cuando Aduanas/SAG termine la revisión.</span></div>
+          </div>
+        </section>
+      </section>
+
+      <section class="app-screen desktop-screen" id="desktop-declarations" aria-label="Declaraciones SAG y Aduanas">
+        <div class="page-head">
+          <div>
+            <p>Control integrado</p>
+            <h1>Declaraciones SAG/Aduanas</h1>
+          </div>
+          <div class="button-row">
+            <button class="desktop-outline" type="button">Derivar a SAG</button>
+            <button class="desktop-primary" type="button">Marcar revisado</button>
+          </div>
+        </div>
+
+        <div class="desktop-grid declarations-layout">
+          <section class="desktop-card">
+            <div class="section-title"><h2>Declaración del pasajero</h2><span class="status-pill review">En revisión</span></div>
+            <dl class="detail-list">
+              <div><dt>Productos animales o vegetales</dt><dd>Sí</dd></div>
+              <div><dt>Tipo de producto</dt><dd>Alimentos</dd></div>
+              <div><dt>Descripción</dt><dd>Productos envasados para consumo personal.</dd></div>
+              <div><dt>Declaración de veracidad</dt><dd>Aceptada por el pasajero</dd></div>
+            </dl>
+          </section>
+
+          <section class="desktop-card risk-card">
+            <div class="section-title"><h2>Evaluación de riesgo</h2><span class="tag red">Media</span></div>
+            <ul class="alert-list">
+              <li><strong>Revisión SAG recomendada</strong><span>Producto vegetal declarado.</span></li>
+              <li><strong>Sin bloqueo automático</strong><span>Descripción entregada por pasajero.</span></li>
+              <li><strong>Acción sugerida</strong><span>Inspección documental antes de ventanilla.</span></li>
+            </ul>
+          </section>
+        </div>
+
+        <section class="desktop-card">
+          <div class="section-title"><h2>Resolución simulada</h2><span>Resultado visible para funcionario</span></div>
+          <div class="resolution-grid">
+            <button type="button">Aprobar declaración</button>
+            <button type="button">Solicitar inspección física</button>
+            <button type="button">Solicitar información adicional</button>
+            <button type="button">Rechazar por inconsistencia</button>
+          </div>
+        </section>
+      </section>
+
+      <section class="app-screen desktop-screen" id="desktop-reports" aria-label="Reportes y métricas">
+        <div class="page-head">
+          <div>
+            <p>Seguimiento institucional</p>
+            <h1>Reportes y métricas</h1>
+          </div>
+          <button class="desktop-primary" type="button">Generar reporte PDF</button>
+        </div>
+
+        <div class="metric-grid">
+          <article class="metric-card"><span>Tiempo promedio atención</span><strong>07:42</strong><small>Meta: menor a 10 minutos</small></article>
+          <article class="metric-card"><span>Declaraciones digitales</span><strong>68%</strong><small>Comparado con atención manual</small></article>
+          <article class="metric-card"><span>Documentos observados</span><strong>14</strong><small>Durante el turno actual</small></article>
+          <article class="metric-card"><span>Integraciones disponibles</span><strong>3/3</strong><small>Aduanas, SAG y PDI simulado</small></article>
+        </div>
+
+        <section class="desktop-card">
+          <div class="section-title"><h2>Indicadores por institución</h2><span>Resumen operativo</span></div>
+          <div class="bar-list">
+            <div><span>Aduanas</span><b style="width:82%"></b><strong>82%</strong></div>
+            <div><span>SAG</span><b style="width:61%"></b><strong>61%</strong></div>
+            <div><span>PDI</span><b style="width:74%"></b><strong>74%</strong></div>
+          </div>
+        </section>
+      </section>
+
+      <section class="app-screen desktop-screen" id="desktop-admin" aria-label="Administración">
+        <div class="page-head">
+          <div>
+            <p>Configuración del sistema</p>
+            <h1>Administración</h1>
+          </div>
+          <button class="desktop-primary" type="button">Guardar configuración</button>
+        </div>
+
+        <div class="desktop-grid two-columns">
+          <section class="desktop-card">
+            <div class="section-title"><h2>Usuarios y perfiles</h2><span class="tag blue">Roles</span></div>
+            <div class="permission-list">
+              <label><input type="checkbox" checked /> Funcionario Aduanas: revisar y aprobar documentación</label>
+              <label><input type="checkbox" checked /> Inspector SAG: revisar productos declarados</label>
+              <label><input type="checkbox" checked /> PDI: validar identidad y movimiento migratorio</label>
+              <label><input type="checkbox" /> Pasajero: edición posterior al envío</label>
+            </div>
+          </section>
+
+          <section class="desktop-card">
+            <div class="section-title"><h2>Integraciones simuladas</h2><span class="tag blue">Operativas</span></div>
+            <div class="integration-list">
+              <div><strong>Aduanas</strong><span>Disponible</span></div>
+              <div><strong>SAG</strong><span>Disponible</span></div>
+              <div><strong>PDI</strong><span>Disponible</span></div>
+              <div><strong>Notificaciones correo</strong><span>En pruebas</span></div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
