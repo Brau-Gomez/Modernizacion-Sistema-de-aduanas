@@ -20,6 +20,8 @@
 
 *{box-sizing:border-box}
 
+.hidden{display:none !important}
+
 html{scroll-behavior:smooth}
 
 body{
@@ -171,7 +173,7 @@ input[type="password"],
 input[type="text"],
 input[type="tel"],
 input[type="date"],
-input[type= "search"],
+input[type="search"],
 select,
 textarea{
   width:100%;
@@ -184,6 +186,7 @@ textarea{
   font:inherit;
   font-size:14px;
   outline:none;
+  text-align:left;
 }
 
 .search input{
@@ -202,6 +205,14 @@ select:focus,
 textarea:focus{
   border-color:var(--gob-blue);
   box-shadow:0 0 0 3px rgba(15,105,180,.16);
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled{
+  color:var(--muted);
+  background:#eef2f7;
+  cursor:not-allowed;
 }
 
 .primary,
@@ -343,6 +354,12 @@ textarea:focus{
   background:linear-gradient(135deg,var(--gob-blue) 0 62%,var(--gob-red) 62% 100%);
   border:1px solid var(--line);
   font-size:12px;
+}
+
+.avatar-link{
+  display:inline-flex;
+  border-radius:50%;
+  text-decoration:none;
 }
 
 .avatar.big{
@@ -603,7 +620,10 @@ textarea:focus{
   fill:none;
   stroke-width:2.2;
 }
-.search input{padding-left:48px}
+.search input{
+  padding-left:20px;
+  text-align:left;
+}
 
 details{
   margin:14px 0;
@@ -820,6 +840,11 @@ details p{
   gap:10px;
   flex-wrap:wrap;
   justify-content:flex-end;
+}
+
+.button-row .form-message{
+  width:100%;
+  text-align:right;
 }
 
 .metric-grid{
@@ -1223,6 +1248,53 @@ details p{
   width:18px;
   height:18px;
   accent-color:var(--gob-blue);
+}
+
+.form-message{
+  margin:12px 0 0;
+  font-size:13px;
+  font-weight:800;
+  line-height:1.4;
+}
+
+.form-message.error{
+  color:#991b1b;
+}
+
+.form-message.success{
+  color:#166534;
+}
+
+.empty-state{
+  margin:14px 0 0;
+  padding:14px;
+  border:1px dashed var(--line);
+  border-radius:14px;
+  color:var(--muted);
+  background:#f8fbfd;
+  font-size:13px;
+  font-weight:800;
+  text-align:center;
+}
+
+.form-hint,
+.file-name{
+  margin:10px 0 0;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.4;
+}
+
+.file-name{
+  font-weight:800;
+}
+
+.integration-results{
+  margin-bottom:14px;
+}
+
+.integration-button{
+  margin-top:4px;
 }
 
 @media (max-width:1100px){

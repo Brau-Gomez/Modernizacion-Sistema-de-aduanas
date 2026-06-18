@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prototitpo Movil - Paso Seguro SNA</title>
-  <Link = rel="icon" type="image/png/jpg" href="assets/Logo-aduanas-mod.png"/>
+  <title>Prototipo Móvil - Paso Seguro SNA</title>
+  <link rel="icon" type="image/png" href="assets/Logo-aduanas-mod.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -71,32 +71,35 @@
           <h1>Aduanas Chile</h1>
           <p>Trámites fronterizos terrestres</p>
         </div>
+        
+        <form class="card" id="login-form" novalidate>
+            <h2>Iniciar sesión</h2>
 
-        <form class="card">
-          <h2>Iniciar sesión</h2>
-          <label class="field-label" for="login-email">Correo electrónico</label>
-          <input id="login-email" type="email" placeholder="********@email.com" autocomplete="email" />
+            <label class="field-label" for="login-email">Correo electrónico</label>
+            <input id="login-email" type="email" placeholder="********@email.com" autocomplete="email" />
 
-          <label class="field-label" for="login-password">Contraseña</label>
-          <input id="login-password" type="password" placeholder="********" autocomplete="current-password" />
+            <label class="field-label" for="login-password">Contraseña</label>
+            <input id="login-password" type="password" placeholder="********" autocomplete="current-password" />
 
-          <a class="primary" href="#home">
-            Ingresar
-            <span class="button-icon"><svg><use href="#icon-arrow"></use></svg></span>
-          </a>
+            <button class="primary" id="login-submit" type="submit">
+              Ingresar
+              <span class="button-icon"><svg><use href="#icon-arrow"></use></svg></span>
+            </button>
 
-          <button class="outline" type="button">
-            <span class="button-icon"><svg><use href="#icon-key"></use></svg></span>
-            Ingresar con Clave Única
-          </button>
+            <p class="form-message" id="login-message" aria-live="polite"></p>
 
-          <button class="outline" type="button">
-            <span class="button-icon gmail-symbol" aria-hidden="true"><svg><use href="#icon-gmail"></use></svg></span>
-            Ingresar con Gmail
-          </button>
+            <button class="outline" id="claveunica-login" type="button">
+              <span class="button-icon"><svg><use href="#icon-key"></use></svg></span>
+              Ingresar con Clave Única
+            </button>
 
-          <p class="center small">¿No tienes cuenta? <a href="#register">Regístrate aquí</a></p>
-        </form>
+            <button class="outline" id="gmail-login" type="button">
+              <span class="button-icon gmail-symbol" aria-hidden="true"><svg><use href="#icon-gmail"></use></svg></span>
+              Ingresar con Gmail
+            </button>
+
+            <p class="center small">¿No tienes cuenta? <a href="#register">Regístrate aquí</a></p>
+          </form>
 
         <div class="help-strip"> Ayuda - Seguridad - Términos </div>
       </div>
@@ -107,9 +110,9 @@
       <div class="screen scroll">
         <div class="nav"><a href="#login" aria-label="Volver"></a><strong>Crear cuenta</strong><span></span></div>
 
-        <form class="card">
+        <form class="card" id="register-form" novalidate>
           <h2>Registro de usuario</h2>
-          <button class="outline" type="button">
+          <button class="outline" id="gmail-register" type="button">
             <span class="button-icon gmail-symbol" aria-hidden="true"><svg><use href="#icon-gmail"></use></svg></span>
             Registrarme con Gmail
           </button>
@@ -131,7 +134,8 @@
           <label class="field-label" for="register-password">Contraseña</label>
           <input id="register-password" type="password" placeholder="Mínimo 8 caracteres" autocomplete="new-password" />
 
-          <a class="primary" href="#home">Crear cuenta</a>
+          <button class="primary" type="submit">Crear cuenta</button>
+          <p class="form-message" id="register-message" aria-live="polite"></p>
         </form>
       </div>
     </section>
@@ -144,7 +148,9 @@
             <p>Bienvenido/a</p>
             <h2>Paso Seguro SNA</h2>
           </div>
-          <img class="avatar logo-avatar" src="assets/Logo-aduanas-mod.png" alt="Logo Aduana Chile" href="#profile"/>
+          <a class="avatar-link" href="#profile" aria-label="Ir a mi cuenta">
+            <img class="avatar logo-avatar" src="assets/Logo-aduanas-mod.png" alt="Logo Aduana Chile"/>
+          </a>
         </div>
 
         <div class="notice">
@@ -191,7 +197,7 @@
           <p>Información para autocompletar trámites.</p>
         </div>
 
-        <form class="card">
+        <form class="card" id="profile-form" novalidate>
           <label class="field-label" for="profile-name">Nombre completo</label>
           <input id="profile-name" type="text" value="Braulio Gómez" />
 
@@ -211,7 +217,8 @@
           <label class="field-label" for="profile-phone">Teléfono</label>
           <input id="profile-phone" type="tel" value="+56 9 1234 5678" />
 
-          <a class="primary" href="#home">Guardar cambios</a>
+          <button class="primary" type="submit">Guardar cambios</button>
+          <p class="form-message" id="profile-message" aria-live="polite"></p>
         </form>
       </div>
     </section>
@@ -222,7 +229,7 @@
         <div class="nav"><a href="#home" aria-label="Volver">‹</a><strong>Registrar viaje</strong><span></span></div>
         <div class="steps" aria-label="Paso 1 de 3"><b>1</b><span></span><b>2</b><span></span><b>3</b></div>
 
-        <form>
+        <form id="travel-form" novalidate>
           <div class="card">
             <h2>Datos del viaje</h2>
 
@@ -243,6 +250,16 @@
 
             <label class="field-label" for="destination">Destino</label>
             <input id="destination" type="text" placeholder="Ej: Mendoza, Argentina" />
+
+            <label class="field-label" for="vehicle-plate">Patente del vehículo</label>
+            <input id="vehicle-plate" type="text" placeholder="Ej: AB-CD-12" />
+
+            <label class="check" for="has-minor">
+              <input id="has-minor" type="checkbox" />
+              <span>Viaja menor de edad</span>
+            </label>
+
+            <p class="form-hint" id="vehicle-hint">Para salida temporal desde Chile se considera un plazo referencial de 180 días.</p>
           </div>
 
           <div class="card">
@@ -274,7 +291,10 @@
               Subir documento PDF / imagen
             </label>
 
-            <a class="primary" href="#summary">Guardar registro</a>
+            <p class="file-name" id="doc-file-name" aria-live="polite">Ningún archivo seleccionado</p>
+
+            <button class="primary" id="travel-submit" type="submit">Guardar registro</button>
+            <p class="form-message" id="travel-message" aria-live="polite"></p>
           </div>
         </form>
       </div>
@@ -285,7 +305,7 @@
       <div class="screen scroll">
         <div class="nav"><a href="#home" aria-label="Volver">‹</a><strong>Declaraciones</strong><span></span></div>
 
-        <form class="card">
+        <form class="card" id="declaration-form" novalidate>
           <h2>Declaración de pasajero</h2>
 
           <label class="field-label">¿Porta productos animales o vegetales?</label>
@@ -302,9 +322,10 @@
 
           <label class="field-label" for="product-type">Tipo de producto</label>
           <select id="product-type">
-            <option>No aplica</option>
+            <option value="">Seleccione tipo de producto</option>
             <option>Alimentos</option>
             <option>Animal / subproducto</option>
+            <option>No aplica</option>
           </select>
 
           <label class="field-label" for="description">Descripción</label>
@@ -315,7 +336,8 @@
             <span>Declaro que la información entregada es verdadera</span>
           </label>
 
-          <a class="primary" href="#summary">Enviar declaración</a>
+          <button class="primary" id="declaration-submit" type="submit">Enviar declaración</button>
+          <p class="form-message" id="declaration-message" aria-live="polite"></p>
         </form>
 
         <div class="alert">La declaración será vinculada al perfil del pasajero para revisión SAG/Aduanas.</div>
@@ -325,14 +347,16 @@
     <section class="phone app-screen" id="summary" aria-label="Pantalla de comprobante">
       <div class="status"></div>
       <div class="screen">
-        <div class="nav"><a href="#declarations" aria-label="Volver">‹</a><strong>Comprobante</strong><span></span></div>
+        <div class="nav"><a id="summary-back" href="#home" aria-label="Volver">‹</a><strong>Comprobante</strong><span></span></div>
 
         <div class="success">
           <div class="checkmark"><svg><use href="#icon-check"></use></svg></div>
           <h2>Registro recibido</h2>
           <p>Tu trámite quedó registrado para revisión en frontera.</p>
           <div class="qr" aria-label="QR simulado"></div>
-          <p class="small">Código: SNA-2026-000184</p>
+          <p class="small" id="summary-type">Tipo: Trámite fronterizo</p>
+          <p class="small" id="summary-status">Estado: Recibido para revisión</p>
+          <p class="small" id="summary-code">Código: SNA-2026-000184</p>
           <a class="primary" href="#home">Volver al inicio</a>
         </div>
       </div>
