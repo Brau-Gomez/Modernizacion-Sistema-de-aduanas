@@ -1,12 +1,10 @@
-# Prototipo final Paso Seguro SNA
+# Paso Seguro SNA
 
 Versión actual: **0.2.0**
 
-Este prototipo corresponde a la versión final del sistema **Paso Seguro SNA**, una propuesta universitaria para modernizar algunos procesos del Servicio Nacional de Aduanas en pasos fronterizos terrestres.
+Paso Seguro SNA es un prototipo funcional orientado a digitalizar y ordenar procesos asociados a trámites fronterizos terrestres. El sistema considera flujos para pasajeros y funcionarios, incluyendo registro de viaje, carga documental, declaraciones SAG/Aduanas, revisión institucional y seguimiento operativo.
 
-La idea principal es mostrar cómo podría funcionar una plataforma digital para pasajeros y funcionarios, considerando trámites de viaje, documentación, declaraciones SAG/Aduanas y revisión institucional.
-
-No es un sistema real conectado a servicios externos, pero sí permite probar varios flujos de forma simulada.
+El prototipo no está conectado a servicios externos reales. Su objetivo es representar la experiencia de uso, las validaciones principales y la interacción entre módulos mediante datos y estados simulados.
 
 ## Archivos principales
 
@@ -18,154 +16,104 @@ app.js
 assets/Logo-aduanas-mod.png
 ```
 
-## Cómo abrir el prototipo
+## Ejecución
 
-Para probar la vista móvil:
+No requiere instalación ni servidor local. Para utilizarlo, abrir directamente los archivos HTML en un navegador web moderno.
+
+Vista móvil para pasajeros:
 
 ```text
 prototipo_final/movil.html
 ```
 
-Para probar la vista desktop o de funcionario:
+Vista desktop para funcionarios:
 
 ```text
 prototipo_final/desktop.html
 ```
 
-No se necesita instalar nada. Solo se abre el archivo HTML en el navegador.
-
 ## Credenciales de prueba
 
-Para ingresar al prototipo móvil se debe usar:
+La vista móvil incluye autenticación simulada. Para ingresar al portal se deben usar las siguientes credenciales:
 
 ```text
 Correo: usuario@email.com
 Contraseña: 12345678
 ```
 
-Si se ingresan otros datos, el sistema muestra un mensaje de error y no permite entrar al menú principal.
+Si se ingresan credenciales distintas, el sistema muestra un mensaje de error y bloquea el acceso a las pantallas internas.
 
-## Vista móvil
+## Alcance funcional
 
-La vista móvil está pensada para el pasajero. Incluye las siguientes pantallas:
+El prototipo implementa dos experiencias principales:
 
-1. Login
-2. Registro de usuario
-3. Menú principal
-4. Mi cuenta
-5. Registro de viaje y documentación
-6. Declaraciones SAG/Aduanas
-7. Comprobante
-8. Preguntas frecuentes
-
-En esta vista se puede probar el ingreso al portal, la navegación principal, el registro de viaje, la carga de documentos y el envío de una declaración.
-
-## Vista desktop
-
-La vista desktop está pensada para funcionarios o personal administrativo. Incluye:
-
-1. Panel general del paso fronterizo
-2. Bandeja de trámites
-3. Revisión documental
-4. Atención pasajero
-5. Declaraciones SAG/Aduanas
-6. Reportes y métricas
-7. Administración
-
-Esta vista sirve para mostrar cómo un funcionario podría revisar trámites, ver estados, consultar métricas y ejecutar una validación externa simulada.
+- **Vista móvil:** orientada al pasajero, permite iniciar sesión, crear una cuenta de prueba, revisar datos personales, registrar viaje y documentación, completar declaraciones SAG/Aduanas, consultar preguntas frecuentes y visualizar un comprobante con código y QR simulado.
+- **Vista desktop:** orientada a funcionarios, permite revisar un panel operativo, gestionar trámites, consultar documentación, atender pasajeros, revisar declaraciones, observar métricas y ejecutar validaciones externas simuladas.
 
 ## Funcionalidades implementadas
 
-El prototipo tiene lógica básica en JavaScript para que no sea solo visual. Actualmente permite:
+- Validación de inicio de sesión con credenciales de prueba.
+- Bloqueo de acceso directo a pantallas internas sin sesión activa.
+- Registro de cuenta de prueba con validaciones mínimas.
+- Edición de perfil con mensaje de confirmación simulado.
+- Registro de viaje terrestre con validación de campos obligatorios.
+- Validación de fecha estimada de cruce para evitar fechas pasadas.
+- Validación básica de patente chilena en formatos como `AB-CD-12` o `AB-1234`.
+- Validación de documentación obligatoria para pasajeros, menores y vehículos.
+- Carga de documentos en formato PDF o imagen.
+- Visualización del nombre del archivo seleccionado.
+- Declaración SAG/Aduanas con control de productos animales o vegetales.
+- Bloqueo de envío cuando no se acepta la declaración de veracidad.
+- Ajuste automático de campos cuando el pasajero declara que no porta productos sujetos a declaración.
+- Generación de comprobante con código SNA y QR simulado.
+- Buscador funcional de preguntas frecuentes en la vista móvil.
+- Filtro simple de trámites por código, pasajero y estado en la vista desktop.
+- Feedback simulado para exportación, generación de reportes y guardado de configuración.
+- Estados simulados para aprobación documental, solicitud de corrección, derivación SAG y resolución de declaraciones.
+- Validación externa simulada con SAG, PDI y Aduana Argentina.
 
-- Validar login con credenciales de prueba.
-- Rechazar credenciales incorrectas.
-- Bloquear acceso directo a pantallas internas si no hay sesión iniciada.
-- Validar declaración SAG/Aduanas.
-- Bloquear el envío si no se acepta la declaración de veracidad.
-- Registrar viaje terrestre de forma simulada.
-- Validar campos obligatorios del viaje.
-- Validar documentación obligatoria.
-- Aceptar carga de archivo PDF o imagen.
-- Mostrar el nombre del archivo seleccionado.
-- Registrar caso de menor de edad con autorización notarial.
-- Registrar patente de vehículo.
-- Mostrar plazo referencial de 180 días para salida temporal.
-- Registrar ingreso temporal como pendiente de validación.
-- Generar comprobante con código SNA simulado.
-- Mostrar QR simulado.
-- Validar registro de cuenta y edición de perfil de forma simulada.
-- Validar que la fecha de cruce no sea anterior al día actual.
-- Validar formato básico de patente chilena.
-- Buscar preguntas frecuentes en la vista móvil.
-- Filtrar trámites visibles en la bandeja desktop.
-- Mostrar feedback simulado en exportación, reportes, resolución y configuración.
-- Ejecutar integración simulada con SAG, PDI y Aduana Argentina en desktop.
+## Cambios de la versión 0.2.0
 
-## Mejoras de la versión 0.2.0
+La versión `0.2.0` incorpora mejoras incrementales sobre la experiencia de usuario, validaciones y feedback operativo:
 
-La versión `0.2.0` mantiene el alcance de prototipo funcional simulado, pero mejora la experiencia de prueba con cambios pequeños:
-
-- Corrección de texto visible en el título de la vista móvil.
-- Acceso al perfil desde el logo/avatar de la pantalla principal móvil.
+- Corrección de textos visibles en la interfaz móvil.
+- Acceso directo al perfil desde el avatar de la pantalla principal.
 - Validación del formulario de registro antes de crear la sesión simulada.
-- Mensaje de confirmación al guardar cambios en el perfil.
+- Confirmación visual al guardar cambios en el perfil.
 - Bloqueo de viajes con fecha estimada anterior al día actual.
-- Validación básica de patente para formatos como `AB-CD-12` o `AB-1234`.
-- Mensaje inmediato cuando se intenta adjuntar un archivo que no es PDF o imagen.
-- Ajuste automático de campos cuando el pasajero declara que no porta productos animales o vegetales.
-- Buscador funcional para filtrar preguntas frecuentes en la vista móvil.
-- Búsqueda y filtro simple de trámites en la bandeja desktop.
-- Estados simulados para aprobación documental, corrección, derivación SAG y resolución de declaración.
-- Mensajes simulados para exportar listado, generar reporte PDF y guardar configuración.
-- Validación externa desktop con estado intermedio `Consultando...` y hora simulada de ejecución.
-
-## Casos de prueba considerados
-
-El prototipo fue ajustado pensando en los casos de prueba principales del proyecto:
-
-- `CP_AUTH_01`: inicio de sesión exitoso con usuario habilitado.
-- `CP_AUTH_02`: rechazo de inicio de sesión con credenciales inválidas.
-- `CP_DECL_01`: registrar declaración SAG/Aduanas con productos animales o vegetales.
-- `CP_DECL_02`: bloquear declaración sin aceptar veracidad.
-- `CP_VIAJE_01`: registrar viaje terrestre.
-- `CP_DOC_01`: cargar documentación obligatoria.
-- `CP_DOC_02`: rechazar trámite cuando falta documentación requerida.
-- `CP_MENOR_01`: registrar autorización notarial para menor de edad.
-- `CP_VEH_01`: registrar salida temporal de vehículo desde Chile por 180 días.
-- `CP_VEH_02`: registrar ingreso temporal de vehículo a Chile desde Argentina.
-- `CP_COMP_01`: generar comprobante con código y QR simulado.
-- `CP_UI_01`: validar navegación entre pantallas principales.
-- `CP_SEC_01`: validar control de acceso simulado.
-- `CP_INT_01`: validar integración simulada con SAG, PDI y Aduana Argentina.
-- `CP_BRAND_01`: validar identidad visual institucional.
+- Validación básica de patente vehicular.
+- Mensaje inmediato al adjuntar archivos con formato no permitido.
+- Desactivación automática de campos no aplicables en declaraciones SAG/Aduanas.
+- Buscador funcional para preguntas frecuentes.
+- Búsqueda y filtro de trámites en la bandeja desktop.
+- Mensajes de resultado para acciones administrativas simuladas.
+- Estados visuales para resolución documental y derivación institucional.
+- Estado intermedio `Consultando...` durante la validación externa simulada.
 
 ## Identidad visual
 
-Se usaron colores relacionados con Gobierno de Chile y Aduanas:
+La interfaz mantiene una línea visual institucional basada en colores asociados a Gobierno de Chile y Servicio Nacional de Aduanas:
 
 - Azul Gobierno: `#0F69B4`
 - Rojo Gobierno: `#EB3C46`
 - Azul oscuro: `#0B4582`
-- Fondos claros para formularios y tarjetas
+- Fondos claros para formularios, tarjetas y paneles de revisión
 
-También se incorporó el logo `assets/Logo-aduanas-mod.png` como imagen principal del prototipo.
+El prototipo utiliza el recurso `assets/Logo-aduanas-mod.png` como imagen principal de identidad.
+
+## Datos y seguridad
+
+Todos los datos incluidos son ficticios y se usan únicamente para representar flujos de interacción. No se deben utilizar datos personales reales, documentos oficiales reales ni credenciales productivas dentro del prototipo.
 
 ## Limitaciones
 
-Este prototipo sigue siendo una simulación universitaria. Por ahora no tiene:
+Esta versión corresponde a un prototipo funcional simulado. Actualmente no incluye:
 
 - Base de datos real.
-- Usuarios reales registrados.
-- Conexión real con SAG, PDI o Aduana Argentina.
-- Generación real de PDF o Excel.
 - Persistencia completa de trámites.
-- Seguridad real de producción.
+- Usuarios reales registrados.
+- Integración real con SAG, PDI, Aduana Argentina u otros servicios externos.
+- Generación real de PDF, Excel u otros documentos descargables.
+- Seguridad, auditoría o control de acceso de nivel productivo.
 
-Las validaciones están hechas para demostrar el flujo y apoyar la ejecución de los casos de prueba, no para reemplazar un sistema real.
-
-## Nota para la entrega
-
-Para explicar este prototipo, conviene decir que es una **versión funcional simulada**. Esto significa que permite navegar, validar formularios y revisar estados, pero los datos no se guardan en un servidor real.
-
-En resumen, esta versión sirve para demostrar la idea general del sistema, probar los flujos más importantes y mostrar cómo se podría mejorar la experiencia actual de trámites fronterizos.
+Las validaciones implementadas permiten representar reglas de negocio y escenarios de uso principales, pero no reemplazan controles técnicos ni normativos requeridos para una plataforma en producción.
