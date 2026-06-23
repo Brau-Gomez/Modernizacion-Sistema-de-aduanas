@@ -1,6 +1,6 @@
 # Paso Seguro SNA
 
-Versión actual: **0.2.0**
+Versión actual: **0.2.1**
 
 Paso Seguro SNA es un prototipo funcional orientado a digitalizar y ordenar procesos asociados a trámites fronterizos terrestres. El sistema considera flujos para pasajeros y funcionarios, incluyendo registro de viaje, carga documental, declaraciones SAG/Aduanas, revisión institucional y seguimiento operativo.
 
